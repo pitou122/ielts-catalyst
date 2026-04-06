@@ -30,19 +30,6 @@ const highlights = [
     },
 ];
 
-const teachingPoints = [
-    "12 bài học trên lớp, đi từ nền tảng đến ứng dụng trong bài thi IELTS.",
-    "Practice Speaking 1:1 với 2 giảng viên IELTS 8.0, tự xếp lịch linh hoạt theo thời gian của học viên.",
-    "Writing được chấm chữa chi tiết, có feedback riêng cho từng học viên.",
-    "Listening và Reading có hệ thống bài tập, tài liệu chuẩn, chấm và chữa đầy đủ.",
-];
-
-const commitments = [
-    "Nếu sau khóa học học viên chưa đạt trên 5.5, vẫn được tiếp tục truy cập tài liệu lớp.",
-    "Tiếp tục được mock test Speaking miễn phí.",
-    "Tiếp tục được chấm chữa Writing 1:1 miễn phí với giảng viên.",
-];
-
 export default function Home() {
     return (
         <main className="min-h-screen px-4 py-8 md:px-8 md:py-10">
