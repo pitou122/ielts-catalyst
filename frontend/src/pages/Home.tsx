@@ -65,7 +65,7 @@ export default function Home() {
                     </div>
                     <div className="mt-8 flex flex-row items-center gap-4 w-fit">
                         <a
-                            href="https://your-form-link.com"
+                            href="https://forms.gle/RMDtYL6BNu8gUQeF8"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
