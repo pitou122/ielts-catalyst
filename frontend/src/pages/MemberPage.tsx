@@ -1,8 +1,18 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { members } from "../data/members";
-import Card from "../components/Card";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import {
+    ArrowLeft,
+    Phone,
+    Mail,
+    AtSign,
+    MapPin,
+    GraduationCap,
+    Briefcase,
+    Award,
+    Sparkles
+} from "lucide-react";
 
 export default function MemberPage() {
     const { slug } = useParams();
@@ -10,22 +20,23 @@ export default function MemberPage() {
     const [selected, setSelected] = useState<string | null>(null);
     const navigate = useNavigate();
 
-    if (!member) return <div>Not found</div>;
+    if (!member) return <div className="p-8 text-center text-slate-500">Member not found</div>;
 
     return (
-        <div className="min-h-screen bg-slate-50 px-4 py-12 md:px-8">
-            <div className="max-w-6xl mx-auto space-y-10">
+        <main className="min-h-screen bg-slate-50/50 px-4 py-8 md:px-8 md:py-10">
+            <div className="mx-auto flex max-w-6xl flex-col gap-6">
+
                 {/* BACK BUTTON */}
                 <button
                     onClick={() => navigate(-1)}
-                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-100 hover:shadow transition"
+                    className="mb-2 w-fit inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-100 hover:shadow"
                 >
-                    <span className="text-lg">←</span>
-                    Back
+                    <ArrowLeft size={16} />
+                    Quay lại
                 </button>
 
                 {/* ================= SECTION 1: HEADER & PROFILE ================= */}
-                <section className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300 md:p-8">
+                <section className="rounded-[36px] border border-slate-200/80 bg-white/85 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)] backdrop-blur md:p-10">
                     <div className="grid gap-8 lg:grid-cols-[320px_1fr] items-center">
 
                         {/* IMAGE */}
@@ -33,128 +44,195 @@ export default function MemberPage() {
                             <img
                                 src={member.avatar}
                                 alt={member.name}
-                                className="w-full h-[320px] object-cover hover:scale-105 transition-transform duration-500"
+                                className="w-full h-[360px] object-cover hover:scale-105 transition-transform duration-700"
                             />
                         </div>
 
                         {/* INFO */}
                         <div className="flex h-full flex-col justify-center">
-                            {/* ROLE */}
-                            <div className="mb-4 w-fit rounded-full bg-slate-900 px-4 py-1.5 text-sm font-semibold tracking-wide text-white shadow-md">
+                            {/* ROLE BADGE */}
+                            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+                                <Sparkles size={16} />
                                 {member.role}
                             </div>
 
                             {/* NAME */}
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900">
+                            <h1 className="text-4xl font-black tracking-tight text-slate-950 md:text-5xl lg:text-6xl">
                                 {member.name}
                             </h1>
 
                             {/* SUMMARY */}
-                            <p className="mt-5 text-slate-600 leading-relaxed text-lg max-w-3xl">
+                            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
                                 {member.summary}
                             </p>
 
                             {/* CONTACT GRID */}
-                            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                                <Info text={member.phone} />
-                                <Info text={member.email} />
-                                <Info text={member.handle} />
-                                <Info text={member.address} />
+                            <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-2">
+                                <Info icon={<Mail size={16} />} text={member.email} />
+                                <Info icon={<MapPin size={16} />} text={member.address} />
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* ================= SECTION 2: EDUCATION & AWARDS ================= */}
-                <section className="grid gap-6 lg:grid-cols-3 items-start">
+                {/* ================= SECTION 2: EDUCATION & EXPERIENCE ================= */}
+                <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
 
                     {/* EDUCATION */}
-                    <div className="lg:col-span-1">
-                        <Card title="Education">
-                            <div className="flex flex-col h-full">
-                                <h3 className="text-xl font-extrabold text-slate-900">
-                                    {member.education.school}
-                                </h3>
-
-                                <div className="mt-3 w-fit rounded-lg bg-emerald-50 border border-emerald-100 px-3 py-1.5 text-sm font-bold text-emerald-700">
-                                    GPA {member.education.gpa}
-                                </div>
-
-                                <ul className="mt-5 flex-1 space-y-3 text-slate-600">
-                                    {member.education.items.map((i) => (
-                                        <li key={i} className="flex items-start">
-                                            <span className="mr-2 mt-1 block h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-                                            <span className="leading-relaxed">{i}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                    <section className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)] md:p-8">
+                        <div className="mb-6 flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white">
+                                <GraduationCap size={20} />
                             </div>
-                        </Card>
-                    </div>
+                            <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
+                                Học vấn
+                            </h2>
+                        </div>
 
-                    {/* AWARDS */}
-                    <div className="lg:col-span-2">
-                        <Card title="Honors & Awards">
-                            <div className="grid gap-4 sm:grid-cols-2">
-                                {member.awards.map((a) => (
-                                    <div
-                                        key={a.title}
-                                        className="group rounded-2xl border border-slate-100 p-5 bg-white shadow-md"
-                                    >
-                                        <div className="flex flex-col gap-1 mb-3">
-                                            <span className="w-fit rounded-md bg-slate-200 px-2 py-1 text-xs font-semibold text-slate-600">
-                                                {a.timeframe}
-                                            </span>
-                                            <h4 className="font-bold text-lg text-slate-900 leading-tight">
-                                                {a.title}
-                                            </h4>
-                                        </div>
-                                        <p className="text-sm text-slate-600 leading-relaxed">
-                                            {a.detail}
-                                        </p>
-                                    </div>
+                        <div className="flex flex-col h-full">
+                            <h3 className="text-lg font-extrabold text-slate-900">
+                                {member.education.school}
+                            </h3>
+
+                            <div className="mt-3 w-fit rounded-lg bg-slate-100 border border-slate-200 px-3 py-1.5 text-sm font-bold text-slate-800">
+                                GPA {member.education.gpa}
+                            </div>
+
+                            <ul className="mt-5 space-y-4 text-sm leading-7 text-slate-600 md:text-[15px]">
+                                {member.education.items.map((i) => (
+                                    <li key={i} className="flex items-start gap-3">
+                                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                                        <span>{i}</span>
+                                    </li>
                                 ))}
-                            </div>
-                        </Card>
-                    </div>
-                </section>
+                            </ul>
+                        </div>
+                    </section>
 
-                {/* ================= SECTION 3: CERTIFICATIONS ================= */}
-                <section className="space-y-6">
-                    <div className="flex items-center justify-between px-2">
-                        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-                            Certifications & Scores
-                        </h2>
-                        <span className="text-sm font-medium text-slate-500 hidden sm:block">
+                    {/* EXPERIENCE */}
+                    <section className="rounded-[32px] border border-slate-200/80 bg-slate-950 p-6 text-white shadow-[0_16px_40px_rgba(15,23,42,0.16)] md:p-8">
+                        <div className="mb-6 flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-950">
+                                <Briefcase size={20} />
+                            </div>
+                            <h2 className="text-2xl font-black tracking-tight text-white md:text-3xl">
+                                Kinh nghiệm
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+                            {member.experience.map((exp, idx) => (
+                                <div
+                                    key={idx}
+                                    className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm transition-colors hover:bg-white/10"
+                                >
+                                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                                    <p className="text-[15px] leading-7 text-slate-200">
+                                        {exp}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                </div>
+                {/* ================= SECTION 3: FEEDBACKS ================= */}
+                {member.feedbacks.length > 0 && (
+                    <section className="rounded-[32px] border border-slate-200/80 bg-white/85 p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)] md:p-8">
+                        {/* HEADER */}
+                        <div className="mb-6 flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white">
+                                💬
+                            </div>
+                            <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
+                                Feedback học viên
+                            </h2>
+                        </div>
+
+                        {/* GRID */}
+                        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            {member.feedbacks.map((fb, index) => (
+                                <div
+                                    key={index}
+                                    className={`
+                                        group bg-white rounded-[24px] p-3 shadow-md 
+                                        transition-all duration-300
+                                        hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]
+                                        hover:-translate-y-1
+                                        ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}
+                                        hover:rotate-0
+                                    `}
+                                >
+                                    {/* IMAGE */}
+                                    <div className="overflow-hidden rounded-[18px]">
+                                        <img
+                                            src={fb.image}
+                                            alt={fb.name}
+                                            className="h-[260px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                    </div>
+
+                                    {/* CONTENT */}
+                                    <div className="mt-3 px-1 pb-1">
+                                        <p className="text-sm text-slate-600 leading-6 line-clamp-3">
+                                            “{fb.content}”
+                                        </p>
+
+                                        <div className="mt-3 flex items-center justify-between">
+                                            <span className="text-sm font-bold text-slate-900">
+                                                {fb.name}
+                                            </span>
+
+                                            {/* RATING */}
+                                            <span className="text-xs text-amber-500 font-semibold">
+                                                {"⭐".repeat(fb.rating || 5)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* ================= SECTION 4: CERTIFICATIONS ================= */}
+                <section className="rounded-[32px] border border-slate-200/80 bg-white/85 p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)] md:p-8">
+                    <div className="mb-6 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white">
+                                <Award size={20} />
+                            </div>
+                            <h2 className="text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
+                                Chứng chỉ & Điểm số
+                            </h2>
+                        </div>
+                        <span className="text-sm font-medium text-slate-500 hidden sm:block bg-slate-100 px-4 py-2 rounded-full">
                             Cuộn ngang để xem thêm →
                         </span>
                     </div>
 
                     {/* Slider Container */}
-                    <div className="flex w-full gap-5 overflow-x-auto pb-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <div className="flex w-full gap-5 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {member.certificates.map((c, index) => (
                             <motion.div
                                 key={c.image}
                                 layoutId={c.image}
                                 onClick={() => setSelected(c.image)}
-                                className="relative shrink-0 snap-center sm:snap-start cursor-pointer w-[280px] sm:w-[320px] rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group"
+                                className="relative shrink-0 snap-center sm:snap-start cursor-pointer w-[280px] sm:w-[320px] rounded-[24px] overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-[0_16px_40px_rgba(15,23,42,0.12)] transition-all duration-300 group"
                             >
                                 <img
                                     src={c.image}
                                     alt={c.name || `Certificate ${index + 1}`}
-                                    className="h-[200px] w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="h-[220px] w-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
 
-                                {/* Gradient Label - Hiển thị tên chứng chỉ */}
-                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent p-4 pt-12 transition-opacity duration-300">
-                                    <p className="text-white font-semibold text-sm sm:text-base truncate drop-shadow-md">
+                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent p-5 pt-12 transition-opacity duration-300">
+                                    <p className="text-white font-bold text-sm sm:text-base truncate drop-shadow-md">
                                         {c.name || `Chứng chỉ ${index + 1}`}
                                     </p>
                                 </div>
 
-                                {/* Hover Overlay - Trượt lên khi hover */}
-                                <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                    <span className="bg-white/95 text-slate-900 text-sm font-bold px-4 py-2 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 backdrop-blur-sm">
+                                <div className="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <span className="bg-white/95 text-slate-900 text-sm font-bold px-5 py-2.5 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 backdrop-blur-sm">
                                         Phóng to
                                     </span>
                                 </div>
@@ -168,7 +246,7 @@ export default function MemberPage() {
                     {selected && (
                         <>
                             <motion.div
-                                className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm"
+                                className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -182,10 +260,10 @@ export default function MemberPage() {
                                 <motion.img
                                     layoutId={selected}
                                     src={selected}
-                                    className="max-h-[85vh] max-w-full sm:max-w-[90vw] rounded-2xl shadow-2xl pointer-events-auto object-contain bg-white"
-                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    className="max-h-[85vh] max-w-full sm:max-w-[90vw] rounded-[24px] shadow-2xl pointer-events-auto object-contain bg-white"
+                                    initial={{ scale: 0.95, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
-                                    exit={{ scale: 0.9, opacity: 0 }}
+                                    exit={{ scale: 0.95, opacity: 0 }}
                                     transition={{
                                         duration: 0.4,
                                         ease: [0.16, 1, 0.3, 1],
@@ -211,14 +289,17 @@ export default function MemberPage() {
                 </AnimatePresence>
 
             </div>
-        </div>
+        </main>
     );
 }
 
-function Info({ text }: { text: string }) {
+function Info({ icon, text }: { icon: React.ReactNode; text: string }) {
     return (
-        <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-sm transition-colors hover:border-slate-300 hover:bg-slate-50">
-            <span className="truncate">{text}</span>
+        <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 transition-colors hover:border-slate-300">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white">
+                {icon}
+            </div>
+            <span className="truncate text-sm font-semibold text-slate-700">{text}</span>
         </div>
     );
 }

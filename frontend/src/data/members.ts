@@ -4,10 +4,9 @@ export type Member = {
     role: string;
     avatar: string;
     summary: string;
-    phone: string;
     email: string;
-    handle: string;
     address: string;
+    experience: string[];
     education: {
         school: string;
         gpa: string;
@@ -17,13 +16,12 @@ export type Member = {
         name: string;
         image: string;
     }[];
-    awards: {
-        title: string;
-        timeframe: string;
-        detail: string;
+    feedbacks: {
+        name: string;
+        image: string;
+        content: string;
+        rating?: number;
     }[];
-    skills: string[];
-    languages: { name: string; level: number }[];
 };
 
 export const members: Member[] = [
@@ -35,10 +33,15 @@ export const members: Member[] = [
         summary:
             "Theo đuổi phương pháp giảng dạy IELTS theo hướng logic và science-based, giúp học viên hiểu bản chất thay vì học mẹo rời rạc.",
 
-        phone: "—",
         email: "—",
-        handle: "@phuclam",
         address: "Hà Nội",
+        experience: [
+            "Giảng dạy tiếng Anh lớp 1:1 và lớp 10 học sinh từ 2023",
+            "Hoàn thành 120 giờ giảng dạy trong chương trình TESOL",
+            "Tham gia xây dựng các khóa học & project ngôn ngữ ngắn hạn",
+            "70% học sinh đạt IELTS từ 7.0+",
+            "Học sinh đạt điểm IELTS từ 6.0 - 8.0",
+        ],
 
         education: {
             school: "École Polytechnique (Paris)",
@@ -58,41 +61,44 @@ export const members: Member[] = [
             { name: "TESOL", image: "/certs/phuc-lam-tesol.png" },
         ],
 
-
-        awards: [
+        feedbacks: [
             {
-                title: "Academic Achievements",
-                timeframe: "",
-                detail: "1570 SAT, 8.0 IELTS, Học bổng Học sinh Chuyên",
+                name: "Bảo Linh",
+                image: "/feedbacks/phuc-lam-1.png",
+                content: "THPT Chuyên Hà Nội - Amsterdam",
+                rating: 5,
             },
-        ],
-
-
-        skills: [
-            "IELTS Teaching",
-            "Curriculum Design",
-            "Academic Mentoring",
-            "Public Speaking",
-        ],
-
-        languages: [
-            { name: "English", level: 95 },
-            { name: "Vietnamese", level: 100 },
+            {
+                name: "Hoàng Anh",
+                image: "/feedbacks/phuc-lam-2.png",
+                content: "THPT Marie Curie",
+                rating: 5,
+            },
+            {
+                name: "Minh Tùng",
+                image: "/feedbacks/phuc-lam-3.png",
+                content: "THPT Chuyên Khoa Học Tự Nhiên",
+                rating: 5,
+            },
         ],
     },
 
     {
         slug: "minh-quang",
         name: "Phạm Minh Quang",
-        role: "Curriculum Designer",
+        role: "Teacher Assistant / Tutor",
         avatar: "/members/minh-quang.png",
         summary:
             "Chuyên về xây dựng hệ thống bài giảng rõ ràng, logic, giúp học viên tiếp cận IELTS một cách bài bản và hiệu quả.",
 
-        phone: "—",
         email: "—",
-        handle: "@minhquang",
         address: "Hà Nội",
+        experience: [
+            "Kinh nghiệm ôn thi và tổ chức chương trình IELTS cấp tốc",
+            "Giảng dạy IELTS trực tiếp tại Hà Nội",
+            "Bổ trợ ngoại ngữ cho học sinh chương trình chất lượng cao & quốc tế",
+            "Hỗ trợ học viên cần thi IELTS gấp",
+        ],
 
         education: {
             school: "ESSEC Business School (Paris)",
@@ -111,41 +117,26 @@ export const members: Member[] = [
             { name: "TESOL", image: "/certs/minh-quang-tesol.png" },
         ],
 
-
-        awards: [
-            {
-                title: "Academic Achievements",
-                timeframe: "",
-                detail: "8.0 IELTS, C1 French, Học bổng Học sinh Chuyên",
-            },
-        ],
-
-
-        skills: [
-            "Curriculum Design",
-            "Teaching",
-            "System Thinking",
-            "Language Training",
-        ],
-
-        languages: [
-            { name: "English", level: 95 },
-            { name: "French", level: 85 },
-        ],
+        feedbacks: [],
     },
 
     {
         slug: "hoai-nam",
         name: "Nguyễn Hoài Nam",
-        role: "Academic Coach",
+        role: "Teacher Assistant / Tutor",
         avatar: "/members/hoai-nam.png",
         summary:
             "Tập trung vào việc hỗ trợ học viên cải thiện hiệu suất học tập và đạt kết quả ổn định trong kỳ thi IELTS.",
 
-        phone: "—",
         email: "—",
-        handle: "@hoainam",
         address: "Hà Nội",
+        experience: [
+            "Giảng dạy IELTS và SAT cho học sinh THPT",
+            "Ôn thi chuyên Anh (CNN, Ams, ...)",
+            "Tham gia và giảng dạy các buổi speech IELTS Speaking",
+            "Tư vấn và tổ chức mock test Speaking",
+            "80% học viên SAT đạt trên 1500",
+        ],
 
         education: {
             school: "Đại học Bách Khoa Hà Nội",
@@ -163,26 +154,6 @@ export const members: Member[] = [
             { name: "SAT", image: "/certs/hoai-nam-sat.png" },
             { name: "TESOL", image: "/certs/hoai-nam-tesol.png" },
         ],
-
-        awards: [
-            {
-                title: "Academic Achievements",
-                timeframe: "",
-                detail: "8.0 IELTS, 1570 SAT, Học sinh tiêu biểu THPT Chuyên Ngoại Ngữ",
-            },
-        ],
-
-
-        skills: [
-            "Coaching",
-            "IELTS Training",
-            "Student Support",
-            "Performance Tracking",
-        ],
-
-        languages: [
-            { name: "English", level: 92 },
-            { name: "Vietnamese", level: 100 },
-        ],
+        feedbacks: [],
     },
 ];

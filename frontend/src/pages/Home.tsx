@@ -63,6 +63,27 @@ export default function Home() {
                             </div>
                         ))}
                     </div>
+                    <div className="mt-8 flex flex-row items-center gap-4 w-fit">
+                        <a
+                            href="https://your-form-link.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+                                inline-flex items-center justify-center gap-2
+                                rounded-full bg-slate-900 px-6 py-3
+                                text-sm font-bold text-white
+                                shadow-lg transition-all
+                                hover:bg-slate-800 hover:shadow-xl hover:-translate-y-0.5
+                            "
+                        >
+                            Đăng ký ngay
+                        </a>
+
+                        {/* NOTE */}
+                        <p className="text-xs text-slate-400 italic leading-none">
+                            *mọi thắc mắc sẽ được giải đáp sau khi điền thông tin đăng ký
+                        </p>
+                    </div>
                 </div>
 
                 <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -74,14 +95,14 @@ export default function Home() {
                         <div className="space-y-4 text-sm leading-7 text-slate-600 md:text-[15px]">
                             <p>
                                 Khóa học gồm 12 buổi trên lớp, học 2 buổi mỗi tuần, mỗi buổi 2 giờ.
-                                Lịch học cố định vào <span className="font-semibold text-slate-900">19:00 - 21:00 thứ 3 và thứ 6</span>,
-                                khai giảng từ <span className="font-semibold text-slate-900">14/4</span>.
+                                Lịch học cố định vào <span className="font-semibold text-slate-900">19:00 - 21:00 thứ 3 và thứ 6</span>
                             </p>
 
                             <p>
                                 Ngoài phần học trên lớp, học viên còn có các buổi{" "}
                                 <span className="font-semibold text-slate-900">Practice Speaking 1:1</span>{" "}
-                                được thiết kế linh hoạt theo lịch cá nhân. Học viên được tự xếp lịch để phù hợp
+                                với dàn giáo viên 8.0 IELTS chất lượng.
+                                Học viên được tự xếp lịch để phù hợp
                                 với thời gian của mình.
                             </p>
                         </div>
@@ -94,18 +115,18 @@ export default function Home() {
                             />
                             <InfoCard
                                 icon={<GraduationCap size={18} />}
-                                title="Đội ngũ giảng dạy"
-                                text="Practice Speaking 1:1 với hai giảng viên IELTS 8.0, chấm chữa kỹ và có feedback riêng."
+                                title="Đặc Quyền 'Catalyst-er'"
+                                text="Practice 1:1 với hai giảng viên IELTS 8.0, chấm chữa kỹ và có feedback riêng."
                             />
                             <InfoCard
-                                icon={<ShieldCheck size={18} />}
+                                icon={<Sparkles size={18} />}
                                 title="Luyện tập & tài liệu"
                                 text="Hệ thống bài tập chuẩn, tài liệu đi kèm, Listening và Reading được chấm chữa đầy đủ."
                             />
                             <InfoCard
-                                icon={<Sparkles size={18} />}
+                                icon={<ShieldCheck size={18} />}
                                 title="Hậu khóa học"
-                                text="Nếu chưa đạt trên 5.5, học viên vẫn tiếp tục được hỗ trợ tài liệu, mock Speaking và Writing 1:1 miễn phí."
+                                text="Đừng lo nếu chưa đạt trên 5.5, bởi vì học viên vẫn tiếp tục được hỗ trợ tài liệu, mock Speaking và Writing 1:1 miễn phí."
                             />
                         </div>
                     </section>
@@ -122,13 +143,22 @@ export default function Home() {
                             <ScheduleRow label="Khai giảng" value="14/4" />
                             <ScheduleRow label="Speaking 1:1" value="Tự xếp lịch linh hoạt" />
                         </div>
+                        <div className="mt-6 rounded-[24px] border border-white/10 bg-white/5 p-5">
 
-                        <div className="mt-8 rounded-[24px] border border-white/10 bg-white/5 p-5">
-                            <p className="text-sm leading-7 text-slate-300">
-                                Khóa học được thiết kế đặc biệt cho các bạn đi theo hướng
-                                <span className="font-semibold text-white"> science-based</span>,
-                                tức là tiếp cận IELTS theo cách thật khoa học, logic và có thể áp dụng
-                                ổn định cho nhiều trình độ khác nhau.
+                            <p className="mt-3 text-sm leading-7 text-slate-300">
+                                Khóa học được thiết kế theo hướng đi từ nền tảng đến nâng cao, giúp học viên
+                                xây dựng lại toàn bộ kiến thức IELTS một cách có hệ thống thay vì học rời rạc.
+                            </p>
+
+                            <p className="mt-3 text-sm leading-7 text-slate-300">
+                                Ở giai đoạn đầu, học viên sẽ được củng cố nền tảng ngôn ngữ và tư duy làm bài.
+                                Sau đó, chương trình tập trung vào chiến lược xử lý từng dạng đề, tối ưu
+                                điểm số theo từng kỹ năng Listening, Reading, Writing và Speaking.
+                            </p>
+
+                            <p className="mt-3 text-sm leading-7 text-slate-300">
+                                Mục tiêu cuối cùng là giúp học viên không chỉ đạt điểm số mong muốn,
+                                mà còn hiểu rõ cách cải thiện trình độ một cách bền vững và có thể tự học sau khóa học.
                             </p>
                         </div>
                     </aside>
@@ -136,7 +166,7 @@ export default function Home() {
 
                 <section className="rounded-[32px] border border-slate-200/80 bg-white/85 p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)] md:p-8">
                     <h2 className="mb-3 text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
-                        Đội ngũ giáo viên
+                        Đội ngũ giảng viên
                     </h2>
 
                     <div className="mt-6 grid gap-5 md:grid-cols-3">
