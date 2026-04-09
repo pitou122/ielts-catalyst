@@ -4,9 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import {
     ArrowLeft,
-    Phone,
     Mail,
-    AtSign,
     MapPin,
     GraduationCap,
     Briefcase,
