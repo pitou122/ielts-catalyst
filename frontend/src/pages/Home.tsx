@@ -140,7 +140,6 @@ export default function Home() {
                             <ScheduleRow label="Sĩ số" value="3 học sinh / lớp" />
                             <ScheduleRow label="Thời lượng" value="12 buổi / khóa" />
                             <ScheduleRow label="Lịch học" value="19:00 - 21:00, thứ 3 & 6" />
-                            <ScheduleRow label="Khai giảng" value="21/4" />
                             <ScheduleRow label="Speaking 1:1" value="Tự xếp lịch linh hoạt" />
                         </div>
                         <div className="mt-6 rounded-[24px] border border-white/10 bg-white/5 p-5">
