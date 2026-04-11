@@ -33,7 +33,7 @@ export const members: Member[] = [
         summary:
             "Theo đuổi phương pháp giảng dạy IELTS theo hướng logic và science-based, giúp học viên hiểu bản chất thay vì học mẹo rời rạc.",
 
-        email: "—",
+        email: "men.ntpl@gmail.com",
         address: "Hà Nội",
         experience: [
             "Giảng dạy tiếng Anh lớp 1:1 và lớp 10 học sinh từ 2023",
@@ -91,7 +91,7 @@ export const members: Member[] = [
         summary:
             "Chuyên về xây dựng hệ thống bài giảng rõ ràng, logic, giúp học viên tiếp cận IELTS một cách bài bản và hiệu quả.",
 
-        email: "—",
+        email: "Quangphamminh.work@gmail.com",
         address: "Hà Nội",
         experience: [
             "Kinh nghiệm ôn thi và tổ chức chương trình IELTS cấp tốc",
@@ -128,7 +128,7 @@ export const members: Member[] = [
         summary:
             "Tập trung vào việc hỗ trợ học viên cải thiện hiệu suất học tập và đạt kết quả ổn định trong kỳ thi IELTS.",
 
-        email: "—",
+        email: "nhnam2728@gmail.com",
         address: "Hà Nội",
         experience: [
             "Giảng dạy IELTS và SAT cho học sinh THPT",
