@@ -95,7 +95,7 @@ export default function Home() {
                         <div className="space-y-4 text-sm leading-7 text-slate-600 md:text-[15px]">
                             <p>
                                 Khóa học gồm 12 buổi trên lớp, học 2 buổi mỗi tuần, mỗi buổi 2 giờ.
-                                Lịch học cố định vào <span className="font-semibold text-slate-900">19:00 - 21:00 thứ 3 và thứ 6</span>
+                                Lịch học cố định vào <span className="font-semibold text-slate-900">19:00 - 21:00 thứ 2 và thứ 6</span>
                             </p>
 
                             <p>
@@ -139,7 +139,7 @@ export default function Home() {
                         <div className="mt-6 space-y-4">
                             <ScheduleRow label="Sĩ số" value="3 học sinh / lớp" />
                             <ScheduleRow label="Thời lượng" value="12 buổi / khóa" />
-                            <ScheduleRow label="Lịch học" value="19:00 - 21:00, thứ 3 & 6" />
+                            <ScheduleRow label="Lịch học" value="19:00 - 21:00, thứ 2 & 6" />
                             <ScheduleRow label="Speaking 1:1" value="Tự xếp lịch linh hoạt" />
                         </div>
                         <div className="mt-6 rounded-[24px] border border-white/10 bg-white/5 p-5">
